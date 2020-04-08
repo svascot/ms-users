@@ -1,9 +1,7 @@
 package com.wof.ms.users.domain.interfaces;
 
 
-import com.wof.ms.users.model.Users;
 import com.wof.ms.users.model.interfaces.IDTO;
-import java.util.List;
 
 /**
  * Interface service for all implementations which allow this application to

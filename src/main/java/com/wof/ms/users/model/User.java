@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Users implements IDTO {
+public class User implements IDTO {
 
   @Id
   private Integer id;

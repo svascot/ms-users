@@ -9,7 +9,7 @@
 
 package com.wof.ms.users.domain.interfaces;
 
-import com.wof.ms.users.model.Users;
+import com.wof.ms.users.model.User;
 import java.util.List;
 
 /**
@@ -20,8 +20,22 @@ import java.util.List;
 public interface IUserService extends IService {
 
     /**
-     * Get All Users.
+     * Get All User.
      */
-    List<Users> getAll();
+    List<User> getAll();
 
+    /**
+     * Get user by id
+     * */
+    User get(Integer id);
+
+    /**
+     * Create a new user
+     * */
+    User create(User user);
+
+    /**
+     * Update an user
+     * */
+    User update(User user);
 }
