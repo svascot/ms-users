@@ -67,4 +67,18 @@ public class UsersController extends AbstractController<IUserService>{
     final URI uri = URI.create(API_PATH + "/" +service.update(user).getId());
     return ResponseEntity.ok().body(uri);
   }
+
+  /**
+   * Call the method that return a List of User objects with the Rol provided.
+   * @param rol Is the rol of the user.
+   * @return an List of User.
+   */
+  @GetMapping("/rol/{rol}")
+  public ResponseEntity get(@PathVariable String rol) {
+    try{
+      return ResponseEntity.ok(service.getByRol(rol));
+    }catch (Exception e){
+      return ResponseEntity.badRequest().body(e.getMessage());
+    }
+  }
 }

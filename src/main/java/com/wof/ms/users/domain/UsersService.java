@@ -5,6 +5,7 @@ import com.wof.ms.users.model.User;
 import com.wof.ms.users.repository.IUsersRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,10 @@ public class UsersService implements IUserService {
   @Override
   public User update(User user){
     return repository.save(user);
+  }
+
+  @Override
+  public List<User> getByRol (String rol){
+    return repository.findAll().stream().filter(user -> user.getRol().equals(rol)).collect(Collectors.toList());
   }
 }

@@ -38,4 +38,9 @@ public interface IUserService extends IService {
      * Update an user
      * */
     User update(User user);
+
+    /**
+     * Get users by rol
+     * */
+    List<User> getByRol(String rol);
 }
