@@ -1,6 +1,7 @@
 package com.wof.ms.users.controller;
 
 import com.wof.ms.users.domain.interfaces.IUserService;
+import com.wof.ms.users.model.Login;
 import com.wof.ms.users.model.User;
 import java.net.URI;
 import org.springframework.http.ResponseEntity;
@@ -77,6 +78,20 @@ public class UsersController extends AbstractController<IUserService>{
   public ResponseEntity get(@PathVariable String rol) {
     try{
       return ResponseEntity.ok(service.getByRol(rol));
+    }catch (Exception e){
+      return ResponseEntity.badRequest().body(e.getMessage());
+    }
+  }
+
+  /**
+   * Call the method that Logs the User.
+   * @param login is the user information object.
+   * @return an Uri to find the user.
+   */
+  @PostMapping("/login")
+  public ResponseEntity login(@RequestBody Login login){
+    try{
+      return ResponseEntity.ok(service.login(login));
     }catch (Exception e){
       return ResponseEntity.badRequest().body(e.getMessage());
     }

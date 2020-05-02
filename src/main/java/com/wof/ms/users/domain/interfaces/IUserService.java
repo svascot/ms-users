@@ -9,6 +9,7 @@
 
 package com.wof.ms.users.domain.interfaces;
 
+import com.wof.ms.users.model.Login;
 import com.wof.ms.users.model.User;
 import java.util.List;
 
@@ -43,4 +44,10 @@ public interface IUserService extends IService {
      * Get users by rol
      * */
     List<User> getByRol(String rol);
+
+    /**
+     * Function that Logs the user
+     * this is a fake login used just for let develop the mobile app
+     */
+    User login(Login login);
 }

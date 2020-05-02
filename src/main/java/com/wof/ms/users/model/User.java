@@ -23,5 +23,6 @@ public class User implements IDTO {
   private String email;
   private String rol;
   private List<String> pets;
+  private String pass; //just for fun
 
 }

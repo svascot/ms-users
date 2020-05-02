@@ -1,6 +1,7 @@
 package com.wof.ms.users.domain;
 
 import com.wof.ms.users.domain.interfaces.IUserService;
+import com.wof.ms.users.model.Login;
 import com.wof.ms.users.model.User;
 import com.wof.ms.users.repository.IUsersRepository;
 
@@ -38,5 +39,10 @@ public class UsersService implements IUserService {
   @Override
   public List<User> getByRol (String rol){
     return repository.findAll().stream().filter(user -> user.getRol().equals(rol)).collect(Collectors.toList());
+  }
+
+  @Override
+  public User login(Login login){
+    return repository.findById(login.getId()).filter(user -> user.getPass().equals(login.getPassword())).get();
   }
 }
